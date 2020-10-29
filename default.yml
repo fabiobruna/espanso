@@ -1,0 +1,80 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Simple text replacement
+  - trigger: ":hh"
+    replace: "👋👋🏼👋🏿"
+
+  - trigger: ":gi"
+    replace: '¯\_(ツ)_/¯'
+
+  - trigger: ":mail"
+    replace: "koetjeboeh@gmail.com"
+
+  - trigger: ":mvg"
+    replace: "Met vriendelijke groet,\nFabio Bruna"
+
+  - trigger: ":commit"
+    form: 'git commit -m "{{message}}"'
+
+#Zettlekasten
+
+# Weeklog
+  - trigger: ":nwn"
+    replace: "# Weeklog {{date}}\n\n## Terugkijken \n\n## Meenemen\n"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+# Maandlog
+  - trigger: ":nmn"
+    replace: "# Maandlog {{date}}\n\n## Terugkijken \n\n## Meenemen\n"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  # Dates
+  - trigger: ":dt"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":ti"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M"
+
+# onderstaande twee commando's samenvoegen?
+
+  - trigger: ":obsn"
+    replace: "[[{{vorige}}|<< Vorige]] [[{{volgende}}|Volgende>>]]"
+    vars:
+      - name: volgende
+        type: shell
+        params:
+          cmd: "date -v+1d +%Y-%m-%d"
+      - name: vorige
+        type: shell
+        params:
+          cmd: "date -v-1d +%Y-%m-%d"
+
+# fun
+
+  - trigger: ":wfh"
+    replace: "🏠 ωοяκιηg ƒяοм нοмε"
