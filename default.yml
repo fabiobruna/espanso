@@ -69,10 +69,12 @@ matches:
         type: shell
         params:
           cmd: "date -v+1d +%Y-%m-%d"
+          # linux: cmd: 'date -d"+1 day" "+%Y-%m-%d"'
       - name: vorige
         type: shell
         params:
           cmd: "date -v-1d +%Y-%m-%d"
+          # linux: cmd: 'date -d"-1 day" "+%Y-%m-%d"'
 
 # fun
 
