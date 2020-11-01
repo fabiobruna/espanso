@@ -25,16 +25,41 @@ matches:
 
 #Zettlekasten
 
-# Weeklog
+# Weeklog (CONCEPT)
   - trigger: ":nwn"
-    replace: "# Weeklog {{date}}\n\n## Terugkijken \n\n## Meenemen\n"
+    replace: "# {{date}} weeklog\n\n ![[{{date}}]]\n\n ![[{{m1}}]]\n\n![[{{m2}}]]\n\n![[{{m3}}]]\n\n![[{{m4}}]]\n\n![[{{m5}}]]\n\n![[{{m6}}]]\n\n## Highs \n\n## Lows"
     vars:
       - name: date
         type: date
         params:
           format: "%Y-%m-%d"
+      - name: m1
+        type: shell
+        params:
+          cmd: "date -v-1d +%Y-%m-%d"
+          # linux: cmd: 'date -d"-1 day" "+%Y-%m-%d"'
+- name: m2
+        type: shell
+        params:
+          cmd: "date -v-2d +%Y-%m-%d"
+      - name: m3
+        type: shell
+        params:
+          cmd: "date -v-3d +%Y-%m-%d"
+      - name: m4
+        type: shell
+        params:
+          cmd: "date -v-4d +%Y-%m-%d"
+      - name: m5
+        type: shell
+        params:
+          cmd: "date -v-5d +%Y-%m-%d"
+      - name: m6
+        type: shell
+        params:
+          cmd: "date -v-6d +%Y-%m-%d"
 
-# Maandlog
+# Maandlog (CONCEPT)
   - trigger: ":nmn"
     replace: "# Maandlog {{date}}\n\n## Terugkijken \n\n## Meenemen\n"
     vars:
